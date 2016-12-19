@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.formation.dao.CocktailDao;
 import fr.formation.dao.CocktailPartDao;
+import fr.formation.dao.IngredientDao;
 import fr.formation.entity.Cocktail;
 import fr.formation.entity.CocktailPart;
 
@@ -15,10 +16,24 @@ import fr.formation.entity.CocktailPart;
 public class CocktailService {
 
 	@Autowired
-	CocktailPartDao cocktailPartDao;
+	private CocktailPartDao cocktailPartDao;
 
 	@Autowired
 	private CocktailDao dao;
+
+	@Autowired
+	private IngredientDao ingredientDao;
+
+	@Transactional
+	public void addCocktailPart(final Integer cocktailId,
+			final Integer ingredientId, final Integer quantity) {
+		final CocktailPart cocktailPart = new CocktailPart();
+		cocktailPart.setCocktail(this.dao.findOne(cocktailId));
+		cocktailPart.setIngredient(this.ingredientDao.findOne(ingredientId));
+		cocktailPart.setQuantity(quantity);
+
+		this.cocktailPartDao.save(cocktailPart);
+	}
 
 	@Transactional
 	public void create(final Cocktail ingredient) {
