@@ -7,7 +7,7 @@
 <body>
 	<h1>Bienvenue dans l'application CocktailBar</h1>
 	<div>
-		Menu :
+		<h2>Menu :</h2>
 		<ul>
 			<c:forEach items="${menus}" var="menu">
 				<c:url value="${menu.url}.html" var="menuUrl" />
