@@ -1,5 +1,7 @@
 package fr.formation.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.formation.entity.Cocktail;
+import fr.formation.entity.CocktailPart;
 import fr.formation.service.CocktailService;
 
 @Controller
@@ -43,6 +46,12 @@ public class CocktailController {
 		cocktail.setWithAlcohol(withAlcohol != null);
 		this.service.create(cocktail);
 		return "redirect:/cocktails/add.html";
+	}
+
+	@RequestMapping("/test")
+	public void test() {
+		final List<CocktailPart> parts = this.service.getCocktailParts();
+		System.out.println("parts size : " + parts.size());
 	}
 
 }

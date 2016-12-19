@@ -6,16 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Application CocktailBar</title>
-<c:url value="/webjars/bootstrap/3.1.0/css/bootstrap.min.css" var="bootstrapUrl" />
+<c:url value="/webjars/bootstrap/3.1.0" var="bootstrapUrl" />
 <c:url value="/webjars/jquery/3.1.1-1/jquery.min.js" var="jqueryUrl" />
+<c:url value="/webjars/jquery-ui/1.12.1" var="jqueryUIUrl" />
 <c:url value="/webjars/datatables/1.10.12" var="datatablesUrl" />
 <c:url value="/webjars/datatables-colreorder/1.2.0" var="datatablesReorderUrl" />
 
-<link rel="stylesheet" href="${bootstrapUrl}">
+<link rel="stylesheet" href="${jqueryUIUrl}/jquery-ui.min.css">
+<link rel="stylesheet" href="${bootstrapUrl}/css/bootstrap.min.css">
 <link rel="stylesheet" href="${datatablesUrl}/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="<c:url value='/css/application.css' />">
 
 <script src="${jqueryUrl}"></script>
+<script src="${jqueryUIUrl}/jquery-ui.min.js"></script>
+<script src="${bootstrapUrl}/js/bootstrap.min.js"></script>
 <script src="${datatablesUrl}/js/jquery.dataTables.min.js"></script>
 <script src="${datatablesReorderUrl}/js/dataTables.colReorder.js"></script>
 </head>
