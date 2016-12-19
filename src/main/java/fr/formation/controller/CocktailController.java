@@ -33,7 +33,7 @@ public class CocktailController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String newIngredient2(@RequestParam final String name,
+	public String newCocktail(@RequestParam final String name,
 			@RequestParam final Float price,
 			@RequestParam(required = false) final Boolean withAlcohol) {
 		final Cocktail cocktail = new Cocktail();
