@@ -40,6 +40,10 @@ public class CocktailService {
 		this.dao.save(ingredient);
 	}
 
+	public Cocktail get(final Integer id) {
+		return this.dao.findOne(id);
+	}
+
 	public List<Cocktail> getAll() {
 		return this.dao.findAll();
 	}
