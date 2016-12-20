@@ -14,10 +14,12 @@
 			<div class="form-group">
 				<form:label path="name">Nom</form:label>
 				<form:input path="name" class="form-control" />
+				<form:errors element="div" path="name" cssClass="alert alert-danger fade in" />
 			</div>
 			<div class="form-group">
 				<form:label path="price">Prix</form:label>
-				<form:input path="price" type="number" min="0" step="0.01" class="form-control" />
+				<form:input path="price" type="number" step="0.01" class="form-control" />
+				<form:errors element="div" path="price" cssClass="alert alert-danger fade in" />
 			</div>
 			<div class="checkbox">
 				<form:label path="withAlcohol" for="withAlcohol">Avec alcool</form:label>
@@ -26,11 +28,43 @@
 			<button>Valider</button>
 		</form:form>
 	</div>
-	<div class="cocktail-ingredients">
-	
+	<div class="cocktail-ingredients container">
+		<table id="cocktailIngredientsTable">
+			<thead>
+				<tr>
+					<th>Ingrédient</th>
+					<th>Quantité</th>
+					<th />
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${cocktailParts}" var="cocktailPart">
+					<c:url value='/cocktail/removeIngredient.html' var="removeUrl">
+						<c:param name="ingredientId" value="${cocktailPart.ingredient.id}" />
+					</c:url>
+					<tr>
+						<td>${cocktailPart.ingredient.name}</td>
+						<td><input type="number" min="0"
+							value="${cocktailPart.quantity}" /></td>
+						<td><a href="${removeUrl}">Supprimer</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<form action="<c:url value='/cocktail/addIngredient.html' />">
+			<select name="ingredientId">
+				<c:forEach items="${ingredients}" var="ingredient">
+					<option value="${ingredient.id}">${ingredient.name}</option>
+				</c:forEach>
+			</select>
+			<button>Ajouter</button>
+		</form>
 	</div>
 	<div class="back">
 		<a href="<c:url value='/cocktails.html' />">Retour</a>
 	</div>
+	<script type="text/javascript">
+		$('#cocktailIngredientsTable').DataTable();
+	</script>
 </body>
 </html>

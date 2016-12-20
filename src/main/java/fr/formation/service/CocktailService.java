@@ -48,8 +48,8 @@ public class CocktailService {
 		return this.dao.findAll();
 	}
 
-	public List<CocktailPart> getCocktailParts() {
-		return this.cocktailPartDao.findAll();
+	public List<CocktailPart> getCocktailParts(final Integer cocktailId) {
+		return this.cocktailPartDao.findAllByCocktailId(cocktailId);
 	}
 
 	@Transactional

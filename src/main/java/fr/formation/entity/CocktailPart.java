@@ -14,6 +14,35 @@ public class CocktailPart implements Serializable {
 
 	private Integer quantity;
 
+	@Override
+	public boolean equals(final Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+		final CocktailPart other = (CocktailPart) obj;
+		if (this.cocktail == null) {
+			if (other.cocktail != null) {
+				return false;
+			}
+		} else if (!this.cocktail.equals(other.cocktail)) {
+			return false;
+		}
+		if (this.ingredient == null) {
+			if (other.ingredient != null) {
+				return false;
+			}
+		} else if (!this.ingredient.equals(other.ingredient)) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * @return the cocktail
 	 */
@@ -29,10 +58,28 @@ public class CocktailPart implements Serializable {
 	}
 
 	/**
+	 * @return the ingredient
+	 */
+	public Ingredient getIngredient() {
+		return this.ingredient;
+	}
+
+	/**
 	 * @return the quantity
 	 */
 	public Integer getQuantity() {
 		return this.quantity;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ (this.cocktail == null ? 0 : this.cocktail.hashCode());
+		result = prime * result
+				+ (this.ingredient == null ? 0 : this.ingredient.hashCode());
+		return result;
 	}
 
 	/**
@@ -50,23 +97,16 @@ public class CocktailPart implements Serializable {
 	}
 
 	/**
+	 * @param ingredient the ingredient to set
+	 */
+	public void setIngredient(final Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
+
+	/**
 	 * @param quantity the quantity to set
 	 */
 	public void setQuantity(final Integer quantity) {
 		this.quantity = quantity;
-	}
-
-	/**
-	 * @return the ingredient
-	 */
-	public Ingredient getIngredient() {
-		return ingredient;
-	}
-
-	/**
-	 * @param ingredient the ingredient to set
-	 */
-	public void setIngredient(Ingredient ingredient) {
-		this.ingredient = ingredient;
 	}
 }

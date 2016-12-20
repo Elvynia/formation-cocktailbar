@@ -5,3 +5,13 @@
 	padding:20px;
 	font-size:18px;
 }
+
+.cocktail-details {
+	width: 30%;
+	float: left;
+}
+
+.cocktail-ingredients {
+	width: 70%;
+	float: right;
+}

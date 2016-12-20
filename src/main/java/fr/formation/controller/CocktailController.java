@@ -48,10 +48,4 @@ public class CocktailController {
 		return "redirect:/cocktails/add.html";
 	}
 
-	@RequestMapping("/test")
-	public void test() {
-		final List<CocktailPart> parts = this.service.getCocktailParts();
-		System.out.println("parts size : " + parts.size());
-	}
-
 }
