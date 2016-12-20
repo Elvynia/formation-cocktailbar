@@ -42,7 +42,7 @@
 		
 		$('#cocktailsTable tbody').on('click', 'tr', function () {
 	        var data = table.row(this).data();
-	        alert('You clicked on id : ' + data[0]);
+	        document.location = 'cocktail/edit/' + data[0] + '.html';
 	    });
 	</script>
 </body>

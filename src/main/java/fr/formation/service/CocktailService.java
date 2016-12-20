@@ -36,8 +36,8 @@ public class CocktailService {
 	}
 
 	@Transactional
-	public void create(final Cocktail ingredient) {
-		this.dao.save(ingredient);
+	public void create(final Cocktail cocktail) {
+		this.dao.save(cocktail);
 	}
 
 	public Cocktail get(final Integer id) {
@@ -50,5 +50,10 @@ public class CocktailService {
 
 	public List<CocktailPart> getCocktailParts() {
 		return this.cocktailPartDao.findAll();
+	}
+
+	@Transactional
+	public void update(final Cocktail cocktail) {
+		this.dao.save(cocktail);
 	}
 }

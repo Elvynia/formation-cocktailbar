@@ -2,14 +2,22 @@ package fr.formation.entity;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class Cocktail implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
 
+	@NotNull
+	@Pattern(regexp = "[^/:;+=@]+")
 	private String name;
 
+	@NotNull
+	@Min(0)
 	private Float price;
 
 	private boolean withAlcohol;
