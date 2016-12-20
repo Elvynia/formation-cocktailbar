@@ -29,6 +29,7 @@
 		</form:form>
 	</div>
 	<div class="cocktail-ingredients container">
+		<h2>Modifier la liste des ingrédients :</h2>
 		<table id="cocktailIngredientsTable">
 			<thead>
 				<tr>
