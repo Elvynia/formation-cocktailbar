@@ -20,6 +20,10 @@ public class IngredientService {
 		this.dao.save(ingredient);
 	}
 
+	public void delete(final Integer id) {
+		this.dao.delete(id);
+	}
+
 	public List<Ingredient> getAll() {
 		return this.dao.findAll();
 	}

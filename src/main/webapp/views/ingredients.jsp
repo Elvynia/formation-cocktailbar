@@ -12,6 +12,7 @@
 				<tr>
 					<th>Nom</th>
 					<th>Etat</th>
+					<th />
 				</tr>
 			</thead>
 			<tbody>
@@ -19,6 +20,7 @@
 					<tr>
 						<td>${ingredient.name}</td>
 						<td>${ingredient.etat}</td>
+						<td><a href="<c:url value='/ingredients/delete/${ingredient.id}.html' />">Supprimer</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
