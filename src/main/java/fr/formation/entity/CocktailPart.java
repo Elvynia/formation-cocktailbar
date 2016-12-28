@@ -2,6 +2,13 @@ package fr.formation.entity;
 
 import java.io.Serializable;
 
+/**
+ * POJO représentant une entité de la base de données dans l'ORM et lié avec la
+ * table 'cocktailpart'.
+ *
+ * @author hb-asus
+ *
+ */
 public class CocktailPart implements Serializable {
 
 	private static final long serialVersionUID = 1L;

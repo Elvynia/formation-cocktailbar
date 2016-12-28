@@ -1,7 +1,5 @@
 package fr.formation.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +8,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.formation.entity.Cocktail;
-import fr.formation.entity.CocktailPart;
 import fr.formation.service.CocktailService;
 
+/**
+ * Controleur appelé dès qu'une URL commence par '/cocktails'. Ses méthodes
+ * permettent de gérer l'affichage de la liste des cocktails ainsi que de gérer
+ * le formulaire d'ajout d'un nouveau cocktail.
+ *
+ * @author hb-asus
+ *
+ */
 @Controller
 @RequestMapping("/cocktails")
 public class CocktailController {

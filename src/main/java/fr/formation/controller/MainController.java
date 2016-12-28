@@ -12,6 +12,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.formation.model.Menu;
 
+/**
+ * Controleur principal permettant de gérer l'URL '/' (qui implicitement donne
+ * '/index.html') et d'afficher la page de menu de l'application.
+ *
+ * @author hb-asus
+ *
+ */
 @Controller
 public class MainController {
 

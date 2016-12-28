@@ -8,33 +8,38 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.formation.dao.CocktailDao;
 import fr.formation.dao.CocktailPartDao;
-import fr.formation.dao.IngredientDao;
 import fr.formation.entity.Cocktail;
 import fr.formation.entity.CocktailPart;
 
+/**
+ * Service permettant de gérer les échanges avec la couche DAO pour modifier les
+ * cocktails en base de données.
+ *
+ * @author hb-asus
+ *
+ */
 @Service
 public class CocktailService {
 
+	/**
+	 * DAO des {@link CocktailPart} en membre privé du service pour pouvoir
+	 * l'utiliser dans les différentes méthodes.
+	 */
 	@Autowired
 	private CocktailPartDao cocktailPartDao;
 
+	/**
+	 * DAO des {@link Cocktail} en membre privé du service pour pouvoir
+	 * l'utiliser dans les différentes méthodes.
+	 */
 	@Autowired
 	private CocktailDao dao;
 
-	@Autowired
-	private IngredientDao ingredientDao;
-
-	@Transactional
-	public void addCocktailPart(final Integer cocktailId,
-			final Integer ingredientId, final Integer quantity) {
-		final CocktailPart cocktailPart = new CocktailPart();
-		cocktailPart.setCocktail(this.dao.findOne(cocktailId));
-		cocktailPart.setIngredient(this.ingredientDao.findOne(ingredientId));
-		cocktailPart.setQuantity(quantity);
-
-		this.cocktailPartDao.save(cocktailPart);
-	}
-
+	/**
+	 * Gère l'ajout d'un cocktail en base de données grâce au DAO.
+	 *
+	 * @param cocktail
+	 */
 	@Transactional
 	public void create(final Cocktail cocktail) {
 		this.dao.save(cocktail);

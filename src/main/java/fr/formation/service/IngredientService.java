@@ -12,6 +12,13 @@ import fr.formation.dao.IngredientDao;
 import fr.formation.entity.CocktailPart;
 import fr.formation.entity.Ingredient;
 
+/**
+ * Service permettant de gérer les échanges avec la couche DAO pour modifier les
+ * ingrédients en base de données.
+ *
+ * @author hb-asus
+ *
+ */
 @Service
 public class IngredientService {
 

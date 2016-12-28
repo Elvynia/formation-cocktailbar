@@ -1,5 +1,12 @@
 package fr.formation.model;
 
+/**
+ * POJO permettant de dynamiser l'affichage du menu dans la page JSP d'index qui
+ * liste les différents menus.
+ *
+ * @author hb-asus
+ *
+ */
 public class Menu {
 
 	final private String title;

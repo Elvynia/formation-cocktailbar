@@ -6,6 +6,13 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+/**
+ * POJO représentant une entité de la base de données dans l'ORM et lié avec la
+ * table 'cocktail'.
+ *
+ * @author hb-asus
+ *
+ */
 public class Cocktail implements Serializable {
 
 	private static final long serialVersionUID = 1L;

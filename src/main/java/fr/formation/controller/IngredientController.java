@@ -13,6 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import fr.formation.entity.Ingredient;
 import fr.formation.service.IngredientService;
 
+/**
+ * Controleur appelé dès qu'une URL commence par '/ingredients'. Ses méthodes
+ * permettent de gérer l'affichage de la liste des ingrédients ainsi que de
+ * gérer le formulaire d'ajout d'un nouvel ingrédient.
+ *
+ * @author hb-asus
+ *
+ */
 @Controller
 @RequestMapping("/ingredients")
 public class IngredientController {
