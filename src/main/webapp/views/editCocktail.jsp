@@ -30,28 +30,31 @@
 	</div>
 	<div class="cocktail-ingredients container">
 		<h2>Modifier la liste des ingrédients :</h2>
-		<table id="cocktailIngredientsTable">
-			<thead>
-				<tr>
-					<th>Ingrédient</th>
-					<th>Quantité</th>
-					<th />
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${cocktailParts}" var="cocktailPart">
-					<c:url value='/cocktail/removeIngredient.html' var="removeUrl">
-						<c:param name="ingredientId" value="${cocktailPart.ingredient.id}" />
-					</c:url>
+		<form action="<c:url value='/cocktail/saveIngredients.html' />" method="POST">
+			<table id="cocktailIngredientsTable">
+				<thead>
 					<tr>
-						<td>${cocktailPart.ingredient.name}</td>
-						<td><input type="number" min="0"
-							value="${cocktailPart.quantity}" /></td>
-						<td><a href="${removeUrl}">Supprimer</a></td>
+						<th>Ingrédient</th>
+						<th>Quantité</th>
+						<th />
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+						<c:forEach items="${cocktailParts}" var="cocktailPart">
+							<c:url value='/cocktail/removeIngredient.html' var="removeUrl">
+								<c:param name="ingredientId" value="${cocktailPart.ingredient.id}" />
+							</c:url>
+							<tr>
+								<td>${cocktailPart.ingredient.name}</td>
+								<td><input type="number" min="0" name="quantity_${cocktailPart.ingredient.id}"
+									value="${cocktailPart.quantity}" /></td>
+								<td><a href="${removeUrl}">Supprimer</a></td>
+							</tr>
+						</c:forEach>
+				</tbody>
+			</table>
+			<button style="float: right">Valider</button>
+		</form>
 		<form action="<c:url value='/cocktail/addIngredient.html' />">
 			<select name="ingredientId">
 				<c:forEach items="${ingredients}" var="ingredient">

@@ -16,3 +16,7 @@
 	float: right;
 	border-left: 1px black solid;
 }
+
+#cocktailIngredientsTable_wrapper {
+	margin-bottom: 20px;
+}

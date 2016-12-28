@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +97,18 @@ public class EditCocktailController {
 		} else {
 			this.cocktailService.update(cocktail);
 		}
+		return this.getForward();
+	}
+
+	@RequestMapping(value = "/saveIngredients", method = RequestMethod.POST)
+	public String saveIngredients(final HttpServletRequest request) {
+		this.cocktailParts.forEach((final CocktailPart cocktailPart) -> {
+			final int quantity = Integer.parseInt(request.getParameter(
+					"quantity_" + cocktailPart.getIngredient().getId()));
+			cocktailPart.setQuantity(quantity);
+		});
+		this.cocktailService.updateCocktailParts(this.cocktailId,
+				this.cocktailParts);
 		return this.getForward();
 	}
 

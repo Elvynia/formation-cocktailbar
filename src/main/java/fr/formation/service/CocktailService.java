@@ -56,4 +56,13 @@ public class CocktailService {
 	public void update(final Cocktail cocktail) {
 		this.dao.save(cocktail);
 	}
+
+	@Transactional
+	public void updateCocktailParts(final Integer cocktailId,
+			final List<CocktailPart> cocktailParts) {
+		this.cocktailPartDao.deleteAllByCocktailId(cocktailId);
+		cocktailParts.forEach(
+				(final CocktailPart cocktailPart) -> this.cocktailPartDao
+						.save(cocktailPart));
+	}
 }
