@@ -22,13 +22,30 @@ import fr.formation.model.Menu;
 @Controller
 public class MainController {
 
+	/**
+	 * Injection du bean de messages défini dans applicationContext.xml.
+	 */
 	@Autowired
 	private MessageSource messages;
 
+	/**
+	 * Méthode privée permettant de récupérer un message plus facilement
+	 * (abstraction des paramètres inutilisés).
+	 *
+	 * @param key la clé du message.
+	 * @return String le message demandé.
+	 */
 	private String getMessage(final String key) {
 		return this.messages.getMessage(key, null, null);
 	}
 
+	/**
+	 * Méthode permettant de charger la page JSP principale de l'application. On
+	 * charge une liste d'objets Menu dans le Model pour pouvoir l'utiliser dans
+	 * la JSP.
+	 *
+	 * @return
+	 */
 	@RequestMapping("/index")
 	public ModelAndView index() {
 		final ModelAndView mav = new ModelAndView();

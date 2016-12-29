@@ -128,7 +128,7 @@ public class EditCocktailController {
 
 	/**
 	 * Méthode privée permettant de construire l'URL de redirection vers la
-	 * méthode qui renvoi l'objet ModelAndView.
+	 * méthode edit() qui renvoi l'objet ModelAndView.
 	 *
 	 * @return String l'URL vers l'édition du coktail.
 	 */
