@@ -1,5 +1,6 @@
 package fr.formation.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,9 +66,24 @@ public class CocktailService {
 	@Transactional
 	public void updateCocktailParts(final Integer cocktailId,
 			final List<CocktailPart> cocktailParts) {
-		this.cocktailPartDao.deleteAllByCocktailId(cocktailId);
-		cocktailParts.forEach(
-				(final CocktailPart cocktailPart) -> this.cocktailPartDao
-						.save(cocktailPart));
+		final List<CocktailPart> dbParts = this.cocktailPartDao
+				.findAllByCocktailId(cocktailId);
+		final List<CocktailPart> toUpdate = new ArrayList<>(cocktailParts);
+		final List<CocktailPart> toAdd = new ArrayList<>(cocktailParts);
+		final List<CocktailPart> toDelete = new ArrayList<>(dbParts);
+
+		// Elements en commun : mettre à jour.
+		toUpdate.retainAll(dbParts);
+		toUpdate.forEach((part) -> {
+			final CocktailPart dbPart = dbParts.get(dbParts.indexOf(part));
+			dbPart.setQuantity(part.getQuantity());
+			this.cocktailPartDao.save(dbPart);
+		});
+		// Elements seulement dans cocktailParts : ajouter.
+		toAdd.removeAll(dbParts);
+		toAdd.forEach((part) -> this.cocktailPartDao.save(part));
+		// Elements seulement dans dbParts : supprimer.
+		toDelete.removeAll(cocktailParts);
+		toDelete.forEach((part) -> this.cocktailPartDao.delete(part));
 	}
 }
