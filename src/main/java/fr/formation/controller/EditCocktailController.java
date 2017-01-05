@@ -104,7 +104,8 @@ public class EditCocktailController {
 	 */
 	@RequestMapping("/edit/{id}")
 	public ModelAndView edit(@PathVariable final Integer id) {
-		if (this.cocktailId != null && !this.cocktailId.equals(id)) {
+		if (this.cocktailId == null || !this.cocktailId.equals(id)) {
+			this.cocktailId = id;
 			this.cocktailParts = new ArrayList<>();
 			if (this.cocktailParts.isEmpty()) {
 				this.cocktailParts.addAll(
@@ -118,7 +119,6 @@ public class EditCocktailController {
 		} else {
 			final Cocktail cocktail = this.cocktailService.get(id);
 			mav.addObject("cocktail", cocktail);
-			this.cocktailId = cocktail.getId();
 		}
 		mav.addObject("cocktailParts", this.cocktailParts);
 		mav.addObject("ingredients",
@@ -188,7 +188,7 @@ public class EditCocktailController {
 		});
 		this.cocktailService.updateCocktailParts(this.cocktailId,
 				this.cocktailParts);
-		return this.getForward();
+		return "forward:/cocktails.html";
 	}
 
 }
