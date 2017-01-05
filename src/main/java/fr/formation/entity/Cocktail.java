@@ -6,6 +6,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import fr.formation.model.SearchResult;
+
 /**
  * POJO représentant une entité de la base de données dans l'ORM et lié avec la
  * table 'cocktail'.
@@ -13,7 +15,7 @@ import javax.validation.constraints.Pattern;
  * @author hb-asus
  *
  */
-public class Cocktail implements Serializable {
+public class Cocktail implements SearchResult, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -54,6 +56,7 @@ public class Cocktail implements Serializable {
 	/**
 	 * @return the id
 	 */
+	@Override
 	public Integer getId() {
 		return this.id;
 	}
@@ -61,6 +64,7 @@ public class Cocktail implements Serializable {
 	/**
 	 * @return the name
 	 */
+	@Override
 	public String getName() {
 		return this.name;
 	}

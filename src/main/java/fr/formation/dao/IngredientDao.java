@@ -16,4 +16,6 @@ import fr.formation.entity.Ingredient;
 public interface IngredientDao extends JpaRepository<Ingredient, Integer> {
 
 	List<Ingredient> findAllByIdNotIn(final List<Integer> ids);
+
+	List<Ingredient> findAllByNameContains(final String search);
 }

@@ -2,6 +2,8 @@ package fr.formation.entity;
 
 import java.io.Serializable;
 
+import fr.formation.model.SearchResult;
+
 /**
  * POJO représentant une entité de la base de données dans l'ORM et lié avec la
  * table 'ingredient'.
@@ -9,7 +11,7 @@ import java.io.Serializable;
  * @author hb-asus
  *
  */
-public class Ingredient implements Serializable {
+public class Ingredient implements SearchResult, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -59,6 +61,7 @@ public class Ingredient implements Serializable {
 	/**
 	 * @return the id
 	 */
+	@Override
 	public Integer getId() {
 		return this.id;
 	}
@@ -66,6 +69,7 @@ public class Ingredient implements Serializable {
 	/**
 	 * @return the name
 	 */
+	@Override
 	public String getName() {
 		return this.name;
 	}

@@ -7,10 +7,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.formation.model.Menu;
+import fr.formation.service.SearchService;
 
 /**
  * Controleur principal permettant de gérer l'URL '/' (qui implicitement donne
@@ -27,6 +30,9 @@ public class MainController {
 	 */
 	@Autowired
 	private MessageSource messages;
+
+	@Autowired
+	private SearchService searchService;
 
 	/**
 	 * Méthode privée permettant de récupérer un message plus facilement
@@ -61,5 +67,19 @@ public class MainController {
 		}
 		mav.getModel().put("menus", menus);
 		return mav;
+	}
+
+	@RequestMapping("/search")
+	public ModelAndView search() {
+		final ModelAndView mav = new ModelAndView();
+		mav.setViewName("search");
+		return mav;
+	}
+
+	@RequestMapping("/search/name")
+	public String searchResults(@RequestParam final String search,
+			final Model model) {
+		model.addAttribute("results", this.searchService.searchByName(search));
+		return "forward:/search.html";
 	}
 }
