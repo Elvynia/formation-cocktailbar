@@ -1,6 +1,14 @@
 # Application CocktailBar
 Démontration d'utilisation de Git au travers d'un projet J2EE permettant la gestion de cocktails.
 
+## Sujet
+Le patron d'un bar souhaite avoir une application Web qui répond au besoin suivant :
+- Une page accessible par tout le monde permet de lister et rechercher des cocktails
+- Une page reservée au patron permet de gérer tous les ingrédients disponibles dans le bar
+  - Chaque ingrédient a un nom et un état (solide, liquide, gazeux)
+- Une page réservée au barman permet de gérer tous les cocktails que peut proposer le bar
+  - Chaque cocktail a un nom et une liste d'ingrédient avec leurs quantités associées
+
 ## Outils et frameworks utilisés
 - Java 8
   - Servlet & HTTP
