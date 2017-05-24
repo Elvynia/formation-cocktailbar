@@ -10,6 +10,14 @@ public class Menu implements Serializable {
 
 	private String url;
 
+	public Menu() {
+	}
+
+	public Menu(final String title, final String url) {
+		this.title = title;
+		this.url = url;
+	}
+
 	/**
 	 * @return the title
 	 */
