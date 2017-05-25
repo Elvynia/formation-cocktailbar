@@ -20,7 +20,7 @@ public class CocktailController {
 
 	@RequestMapping("/index")
 	public ModelAndView index() {
-		final ModelAndView mav = new ModelAndView("cocktail");
+		final ModelAndView mav = new ModelAndView("cocktail/list");
 		mav.getModel().put("cocktailList", this.repository.findAll());
 		return mav;
 	}
@@ -28,7 +28,7 @@ public class CocktailController {
 	@RequestMapping(path = "/add", method = RequestMethod.GET)
 	public String newCocktail(final Model model) {
 		model.addAttribute("newCocktail", new Cocktail());
-		return "createCocktail";
+		return "cocktail/edit";
 	}
 
 	@RequestMapping(path = "add", method = RequestMethod.POST)

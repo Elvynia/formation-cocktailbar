@@ -20,14 +20,14 @@ public class ProductController {
 
 	@RequestMapping("/index")
 	public ModelAndView index() {
-		final ModelAndView mav = new ModelAndView("product");
+		final ModelAndView mav = new ModelAndView("product/list");
 		mav.getModel().put("productList", this.repository.findAll());
 		return mav;
 	}
 
 	@RequestMapping(path = "/add", method = RequestMethod.GET)
 	public ModelAndView newProduct() {
-		return new ModelAndView("createProduct");
+		return new ModelAndView("product/edit");
 	}
 
 	@RequestMapping(path = "/add", method = RequestMethod.POST)
@@ -38,6 +38,6 @@ public class ProductController {
 		product.setName(name);
 		product.setStock(stock);
 		this.repository.save(product);
-		return "redirect:".concat("/product/");
+		return "redirect:/product/";
 	}
 }

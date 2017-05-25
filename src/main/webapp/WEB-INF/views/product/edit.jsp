@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<jsp:include page="header.jsp" />
+<jsp:include page="../header.jsp" />
 <body>
 	<h1>Créer un nouveau produit :</h1>
 	<div class="container">
@@ -18,6 +18,6 @@
 			<button>Valider</button>
 		</form>
 	</div>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>

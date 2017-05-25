@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<jsp:include page="header.jsp" />
+<jsp:include page="../header.jsp" />
 <body>
 	<h1>Liste des produits :</h1>
 	<table id="productTable">
@@ -24,7 +24,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="../footer.jsp" />
 	<script type="text/javascript">
 		$("#productTable").DataTable();
 	</script>
