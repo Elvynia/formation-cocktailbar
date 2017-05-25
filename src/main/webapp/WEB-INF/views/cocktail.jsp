@@ -5,28 +5,30 @@
 <html>
 <jsp:include page="header.jsp" />
 <body>
-	<h1>Liste des produits :</h1>
-	<table id="productTable">
+	<h1>Liste des cocktails :</h1>
+	<table id="cocktailTable">
 		<thead>
 			<tr>
 				<th>Id</th>
 				<th>Nom</th>
-				<th>Stock</th>
+				<th>Avec alcool</th>
+				<th>Prix</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${productList}" var="product">
+			<c:forEach items="${cocktailList}" var="cocktail">
 				<tr>
-					<td>${product.id}</td>
-					<td>${product.name}</td>
-					<td>${product.stock}</td>
+					<td>${cocktail.id}</td>
+					<td>${cocktail.name}</td>
+					<td>${cocktail.withAlcohol}</td>
+					<td>${cocktail.price} €</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<jsp:include page="footer.jsp" />
 	<script type="text/javascript">
-		$("#productTable").DataTable();
+		$("#cocktailTable").DataTable();
 	</script>
 </body>
 </html>

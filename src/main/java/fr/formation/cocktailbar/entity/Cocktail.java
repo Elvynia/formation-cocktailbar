@@ -2,14 +2,20 @@ package fr.formation.cocktailbar.entity;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Cocktail implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
 
+	@NotEmpty
 	private String name;
 
+	@Min(value = 0, message = "erreur min")
 	private Float price;
 
 	private Boolean withAlcohol;
