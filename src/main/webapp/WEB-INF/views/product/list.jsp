@@ -5,26 +5,28 @@
 <html>
 <jsp:include page="../header.jsp" />
 <body>
-	<h1>Liste des produits :</h1>
-	<table id="productTable">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Nom</th>
-				<th>Stock</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${productList}" var="product">
+	<div class="container">
+		<h1>Liste des produits :</h1>
+		<table id="productTable">
+			<thead>
 				<tr>
-					<td>${product.id}</td>
-					<td>${product.name}</td>
-					<td>${product.stock}</td>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Stock</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<jsp:include page="../footer.jsp" />
+			</thead>
+			<tbody>
+				<c:forEach items="${productList}" var="product">
+					<tr>
+						<td>${product.id}</td>
+						<td>${product.name}</td>
+						<td>${product.stock}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<jsp:include page="../footer.jsp" />
+	</div>
 	<script type="text/javascript">
 		$("#productTable").DataTable();
 	</script>

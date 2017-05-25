@@ -1,0 +1,17 @@
+body {
+	padding-top: 120px;
+	padding-bottom: 63px;
+}
+
+#header {
+	background: linear-gradient(30deg, #8fe2db, #3fbf90); 
+	height: 120px;
+}
+
+#header h1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;	
+}

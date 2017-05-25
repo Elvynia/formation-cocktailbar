@@ -4,8 +4,8 @@
 <html>
 <jsp:include page="../header.jsp" />
 <body>
-	<h1>Créer un nouveau produit :</h1>
 	<div class="container">
+		<h1>Créer un nouveau produit :</h1>
 		<form action="#" method="post">
 			<div class="form-group">
 				<label for="name">Nom :</label>
@@ -17,7 +17,7 @@
 			</div>
 			<button>Valider</button>
 		</form>
+		<jsp:include page="../footer.jsp" />
 	</div>
-	<jsp:include page="../footer.jsp" />
 </body>
 </html>

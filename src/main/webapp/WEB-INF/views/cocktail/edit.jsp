@@ -6,8 +6,8 @@
 <html>
 <jsp:include page="../header.jsp" />
 <body>
-	<h1>Créer un nouveau cocktail :</h1>
 	<div class="container">
+		<h1>Créer un nouveau cocktail :</h1>
 		 <form:form action="#" method="post" modelAttribute="newCocktail">
 		 	<div class="form-group">
 		 		<label for="name">Nom :</label>
@@ -23,7 +23,7 @@
 		 	</div>
 		 	<button>Valider</button>
 		 </form:form>
+		<jsp:include page="../footer.jsp" />
 	</div>
-	<jsp:include page="../footer.jsp" />
 </body>
 </html>
