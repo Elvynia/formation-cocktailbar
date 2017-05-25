@@ -25,13 +25,13 @@ public class CocktailController {
 		return mav;
 	}
 
-	@RequestMapping(path = "/add", method = RequestMethod.GET)
+	@RequestMapping(path = "/edit", method = RequestMethod.GET)
 	public String newCocktail(final Model model) {
 		model.addAttribute("newCocktail", new Cocktail());
 		return "cocktail/edit";
 	}
 
-	@RequestMapping(path = "add", method = RequestMethod.POST)
+	@RequestMapping(path = "edit", method = RequestMethod.POST)
 	public String createCocktail(@ModelAttribute("newCocktail") final Cocktail cocktail) {
 		this.repository.save(cocktail);
 		return "redirect:/cocktail/";
