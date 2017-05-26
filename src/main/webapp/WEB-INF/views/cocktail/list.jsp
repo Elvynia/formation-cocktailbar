@@ -14,6 +14,7 @@
 					<th>Nom</th>
 					<th>Avec alcool</th>
 					<th>Prix</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,8 +39,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<jsp:include page="../footer.jsp" />
 	</div>
+	<jsp:include page="../footer.jsp" />
 	<script type="text/javascript">
 		$("#cocktailTable").DataTable();
 	</script>

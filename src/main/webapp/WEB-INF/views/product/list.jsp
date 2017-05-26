@@ -13,7 +13,7 @@
 					<th>Id</th>
 					<th>Nom</th>
 					<th>Stock</th>
-					<th />
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>

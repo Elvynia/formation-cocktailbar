@@ -31,7 +31,7 @@
 			</div>
 			<button>Valider</button>
 		</form>
-		<jsp:include page="../footer.jsp" />
 	</div>
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
