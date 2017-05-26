@@ -39,7 +39,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(path = "/edit", method = RequestMethod.GET)
-	public ModelAndView showCreateProduct() {
+	public ModelAndView showCreate() {
 		return new ModelAndView("product/edit");
 	}
 
@@ -52,7 +52,7 @@ public class ProductController {
 	 * @return Vue product/edit.jsp, Model avec informations du produit à modifier.
 	 */
 	@RequestMapping(path = "/edit/{id}", method = RequestMethod.GET)
-	public ModelAndView showUpdateProduct(@PathVariable("id") final Integer id) {
+	public ModelAndView showUpdate(@PathVariable("id") final Integer id) {
 		if (this.repository.exists(id)) {
 			final ModelAndView mav = new ModelAndView("product/edit");
 			mav.getModel().put("product", this.repository.findOne(id));
@@ -65,7 +65,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(path = "/edit", method = RequestMethod.POST)
-	public String createOrUpdateProduct(final HttpServletRequest request) {
+	public String createOrUpdate(final HttpServletRequest request) {
 		final String name = request.getParameter("name");
 		final Integer stock = Integer.parseInt(request.getParameter("stock"));
 		final Product product = new Product();
