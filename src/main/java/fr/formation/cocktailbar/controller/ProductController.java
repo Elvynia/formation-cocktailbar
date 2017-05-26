@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.formation.cocktailbar.dao.ProductRepository;
@@ -60,7 +61,7 @@ public class ProductController {
 		} else {
 			ProductController.LOGGER
 					.warn("Product with id={} does not exists in database. Switching to product creation.", id);
-			return this.showCreateProduct();
+			return this.showCreate();
 		}
 	}
 
@@ -76,6 +77,16 @@ public class ProductController {
 		product.setStock(stock);
 		// Si l'identifiant du produit est rempli, alors l'update se fera automatiquement à la place de l'insert.
 		this.repository.save(product);
+		return "redirect:/product/";
+	}
+
+	@RequestMapping("/delete")
+	public String delete(@RequestParam final Integer id) {
+		if (this.repository.exists(id)) {
+			this.repository.delete(id);
+		} else {
+			ProductController.LOGGER.warn("Cannot delete product, id={} does not exists in database.", id);
+		}
 		return "redirect:/product/";
 	}
 }

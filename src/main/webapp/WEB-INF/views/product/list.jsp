@@ -13,14 +13,26 @@
 					<th>Id</th>
 					<th>Nom</th>
 					<th>Stock</th>
+					<th />
 				</tr>
 			</thead>
 			<tbody>
+				<c:url value="/images" var="imgUrlPrefix" />
+				<c:url value="/product/edit" var="editUrlPrefix" />
+				<c:url value="/product/delete.html" var="deleteUrlPrefix" />
 				<c:forEach items="${productList}" var="product">
 					<tr>
 						<td>${product.id}</td>
 						<td>${product.name}</td>
 						<td>${product.stock}</td>
+						<td>
+							<a href="${editUrlPrefix}/${product.id}.html">
+								<img src="${imgUrlPrefix}/edit.png">
+							</a>
+							<a href="${deleteUrlPrefix}?id=${product.id}">
+								<img src="${imgUrlPrefix}/delete.png">
+							</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
