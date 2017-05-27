@@ -14,6 +14,9 @@
 <c:url value="/css" var="appCssUrl" />
 <!-- JQuery -->
 <script src="${jqueryUrl}/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="${bootstrapUrl}/css/bootstrap.min.css">
+<script src="${bootstrapUrl}/js/bootstrap.min.js"></script>
 <!-- JQuery UI -->
 <link rel="stylesheet" href="${jqueryuiUrl}/jquery-ui.min.css">
 <script src="${jqueryuiUrl}/jquery-ui.min.js"></script>
@@ -21,11 +24,7 @@
 <link rel="stylesheet" href="${datatablesUrl}/css/jquery.dataTables.min.css">
 <script src="${datatablesUrl}/js/jquery.dataTables.min.js"></script>
 <!-- Plugin DataTables pour réorganiser les colonnes -->
-<link rel="stylesheet" href="${datatablesColreorderUrl}/js/dataTables.colReorder.js">
-<script type="text/javascript" src=""></script>
-<!-- Bootstrap -->
-<link rel="stylesheet" href="${bootstrapUrl}/css/bootstrap.min.css">
-<script src="${bootstrapUrl}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${datatablesColreorderUrl}/js/dataTables.colReorder.js"></script>
 <!-- Application (interne) -->
 <link rel="stylesheet" href="${appCssUrl}/application.css">
 <title>Application CocktailBar</title>
