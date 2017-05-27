@@ -21,6 +21,7 @@
 				<c:url value="/images" var="imgUrlPrefix" />
 				<c:url value="/cocktail/edit" var="editUrlPrefix" />
 				<c:url value="/cocktail/delete.html" var="deleteUrlPrefix" />
+				<c:url value="/ingredient/edit.html" var="ingredientUrlPrefix" />
 				<c:forEach items="${cocktailList}" var="cocktail">
 					<tr>
 						<td>${cocktail.id}</td>
@@ -30,6 +31,9 @@
 						<td>
 							<a href="${editUrlPrefix}/${cocktail.id}.html">
 								<img src="${imgUrlPrefix}/edit.png">
+							</a>
+							<a href="${ingredientUrlPrefix}?cocktailId=${cocktail.id}">
+								<img src="${imgUrlPrefix}/configure.png">
 							</a>
 							<a href="${deleteUrlPrefix}?id=${cocktail.id}">
 								<img src="${imgUrlPrefix}/delete.png">
