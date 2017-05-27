@@ -14,6 +14,51 @@ public class Ingredient implements Serializable {
 
 	private Product product;
 
+	public Ingredient() {
+	}
+
+	public Ingredient(final Cocktail cocktail, final Product product) {
+		this.cocktail = cocktail;
+		this.product = product;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Ingredient)) {
+			return false;
+		}
+		Ingredient other = (Ingredient) obj;
+		if (id == null) {
+			// Comparaison par identifiant produit et cocktail.
+			if (cocktail != null && product != null) {
+				if (other.cocktail == null || other.product == null) {
+					return false;
+				} else if (!cocktail.getId().equals(other.cocktail.getId())) {
+					return false;
+				} else if (!product.getId().equals(other.product.getId())) {
+					return false;
+				}
+			}
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -74,4 +119,14 @@ public class Ingredient implements Serializable {
 		this.product = product;
 	}
 
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("{ id=");
+		sb.append(this.id != null ? this.id : "null");
+		sb.append(", cocktailId=").append(this.cocktail != null ? this.cocktail.getId() : "null");
+		sb.append(", productId=").append(this.product != null ? this.product.getId() : "null");
+		sb.append(", quantity=").append(this.quantity != null ? this.quantity : "null");
+		sb.append(" }");
+		return sb.toString();
+	}
 }

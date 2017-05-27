@@ -20,6 +20,36 @@ public class Cocktail implements Serializable {
 
 	private Boolean withAlcohol;
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj instanceof Cocktail)) {
+			return false;
+		}
+		Cocktail other = (Cocktail) obj;
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * @return the id
 	 */
@@ -80,4 +110,17 @@ public class Cocktail implements Serializable {
 		this.withAlcohol = withAlcohol;
 	}
 
+	/**
+	 * Affichage d'un cocktail en chaine de caractères.
+	 */
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("{");
+		sb.append(" id=").append(this.id != null ? this.id : "null");
+		sb.append(", name=").append(this.name != null ? this.name : "null");
+		sb.append(", price=").append(this.price != null ? this.price : "null");
+		sb.append(", withAlcohol=").append(this.withAlcohol != null ? this.withAlcohol : "null");
+		sb.append(" }");
+		return sb.toString();
+	}
 }
