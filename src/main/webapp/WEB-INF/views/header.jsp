@@ -5,33 +5,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous"></script>
-<!-- JQuery UI -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-	integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-	crossorigin="anonymous"></script>
-<link rel="stylesheet"
-	href="https://code.jquery.com/ui/1.12.1/themes/eggplant/jquery-ui.css">
-<!-- Plugin DataTables -->
-<link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.css" />
-<script type="text/javascript"
-	src="https://cdn.datatables.net/v/dt/dt-1.10.15/datatables.min.js"></script>
+<!-- Configuration des URL avec Webjars -->
+<c:url value="/webjars/bootstrap/3.1.0" var="bootstrapUrl" />
+<c:url value="/webjars/jquery/3.1.1-1" var="jqueryUrl" />
+<c:url value="/webjars/jquery-ui/1.12.1" var="jqueryuiUrl" />
+<c:url value="/webjars/datatables/1.10.12" var="datatablesUrl" />
+<c:url value="/webjars/datatables-colreorder/1.2.0" var="datatablesColreorderUrl" />
+<c:url value="/css" var="appCssUrl" />
 <!-- Bootstrap -->
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
-<!-- Interne -->
-<link rel="stylesheet" href="<c:url value="/css/application.css" />">
+<link rel="stylesheet" href="${bootstrapUrl}/css/bootstrap.min.css">
+<script src="${bootstrapUrl}/js/bootstrap.min.js"></script>
+<!-- JQuery -->
+<script src="${jqueryUrl}/jquery.min.js"></script>
+<!-- JQuery UI -->
+<link rel="stylesheet" href="${jqueryuiUrl}/jquery-ui.min.css">
+<script src="${jqueryuiUrl}/jquery-ui.min.js"></script>
+<!-- Plugin DataTables -->
+<link rel="stylesheet" href="${datatablesUrl}/css/jquery.dataTables.min.css">
+<script src="${datatablesUrl}/js/jquery.dataTables.min.js"></script>
+<!-- Plugin DataTables pour réorganiser les colonnes -->
+<link rel="stylesheet" href="${datatablesColreorderUrl}/js/dataTables.colReorder.js">
+<script type="text/javascript" src=""></script>
+<!-- Application (interne) -->
+<link rel="stylesheet" href="${appCssUrl}/application.css">
 <title>Application CocktailBar</title>
 </head>
 <body>
