@@ -46,6 +46,13 @@ public class IngredientController {
 		return new ArrayList<>();
 	}
 
+	@RequestMapping("/index")
+	public ModelAndView index(@RequestParam final Integer cocktailId) {
+		final ModelAndView mav = new ModelAndView("/ingredient/list");
+		mav.getModel().put("ingredientList", this.ingredientRepository.findAllByCocktailId(cocktailId));
+		return mav;
+	}
+
 	@RequestMapping("/edit")
 	public ModelAndView showEdit(@RequestParam final Integer cocktailId,
 			@ModelAttribute final List<Ingredient> ingredientList, @ModelAttribute final List<Product> productList) {

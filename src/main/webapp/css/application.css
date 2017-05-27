@@ -15,3 +15,8 @@ body {
 	transform: translate(-50%, -50%);
 	margin: 0;	
 }
+
+table.selectable tbody tr.even:hover, table.selectable tbody tr.odd:hover {
+	background-color: #8fe2db;
+	cursor: pointer;
+}
