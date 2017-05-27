@@ -12,9 +12,6 @@
 <c:url value="/webjars/datatables/1.10.12" var="datatablesUrl" />
 <c:url value="/webjars/datatables-colreorder/1.2.0" var="datatablesColreorderUrl" />
 <c:url value="/css" var="appCssUrl" />
-<!-- Bootstrap -->
-<link rel="stylesheet" href="${bootstrapUrl}/css/bootstrap.min.css">
-<script src="${bootstrapUrl}/js/bootstrap.min.js"></script>
 <!-- JQuery -->
 <script src="${jqueryUrl}/jquery.min.js"></script>
 <!-- JQuery UI -->
@@ -26,6 +23,9 @@
 <!-- Plugin DataTables pour réorganiser les colonnes -->
 <link rel="stylesheet" href="${datatablesColreorderUrl}/js/dataTables.colReorder.js">
 <script type="text/javascript" src=""></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="${bootstrapUrl}/css/bootstrap.min.css">
+<script src="${bootstrapUrl}/js/bootstrap.min.js"></script>
 <!-- Application (interne) -->
 <link rel="stylesheet" href="${appCssUrl}/application.css">
 <title>Application CocktailBar</title>
