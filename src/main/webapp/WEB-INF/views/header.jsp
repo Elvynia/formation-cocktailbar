@@ -32,6 +32,12 @@
 <body>
 	<div id="header" class="navbar-default navbar-fixed-top">
 		<h1>Application CocktailBar !</h1>
+		<div style="float: right;padding:10px;">
+			<form action="<c:url value="/logout" />" method="post">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+				<button>Se déconnecter</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
