@@ -72,6 +72,33 @@ CREATE TABLE `product` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `role` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`name` varchar(45) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`username` varchar(45) NOT NULL,
+	`password` varchar(60) NOT NULL,
+	`id_role` int(11) NOT NULL,
+	`enabled` tinyint(1) NOT NULL DEFAULT 1,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `id_UNIQUE` (`id`),
+	KEY `FK_ACCOUNT_ROLE_idx` (`id_role`),
+	CONSTRAINT `FK_ACCOUNT_ROLE` FOREIGN KEY (`id_role`) REFERENCES `role` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
