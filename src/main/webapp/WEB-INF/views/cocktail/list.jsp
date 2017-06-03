@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <jsp:include page="../header.jsp" />
@@ -32,9 +33,11 @@
 							<a href="${editUrlPrefix}/${cocktail.id}.html">
 								<img src="${imgUrlPrefix}/edit.png">
 							</a>
-							<a href="${ingredientUrl}/edit.html?cocktailId=${cocktail.id}">
-								<img src="${imgUrlPrefix}/configure.png">
-							</a>
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<a href="${ingredientUrl}/edit.html?cocktailId=${cocktail.id}">
+									<img src="${imgUrlPrefix}/configure.png">
+								</a>
+							</sec:authorize>
 							<a href="${deleteUrlPrefix}?id=${cocktail.id}">
 								<img src="${imgUrlPrefix}/delete.png">
 							</a>
