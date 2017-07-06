@@ -22,6 +22,7 @@
 	</entity>
 	
 	<entity class="fr.formation.cocktailbar.entity.Cocktail">
+	<table name="cocktail" />
 		<attributes>
 			<id name="id">
 				<generated-value strategy="IDENTITY" />
@@ -33,6 +34,7 @@
 	</entity>
 	
 	<entity class="fr.formation.cocktailbar.entity.Ingredient">
+		<table name="ingredient" />
 		<attributes>
 			<id name="id">
 				<generated-value strategy="IDENTITY" />
