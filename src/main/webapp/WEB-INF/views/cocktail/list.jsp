@@ -34,6 +34,9 @@
 							<a href="<c:url value="/cocktail/edit?id=${cocktail.id}" />">
 								<img src="${imgUrl}/edit.png">
 							</a>
+							<a href="<c:url value="/ingredient/${cocktail.id}" />">
+								<span class="glyphicon glyphicon-cog"></span>
+							</a>
 						</td>
 					</tr>
 				</c:forEach>
