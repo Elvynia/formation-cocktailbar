@@ -27,3 +27,8 @@
         </c:forEach>
     </tbody>
 </table>
+<script type="text/javascript">
+	$(document).ready(() => $('#roleTable').dataTable());
+</script>
+
+

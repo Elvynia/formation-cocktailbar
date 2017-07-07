@@ -67,6 +67,13 @@ public class IngredientController {
 		mav.getModel().put("productList", productList);
 		return mav;
 	}
+	
+	@RequestMapping("/view/{id}")
+	public ModelAndView view(@PathVariable final Integer id) {
+		final ModelAndView mav = new ModelAndView("ingredient/list");
+		mav.addObject("ingredientList", this.ingredientDao.findAllByCocktailId(id));
+		return mav;
+	}
 
 	@RequestMapping(path = "/add", method = RequestMethod.POST)
 	public String addProduct(final Model model,

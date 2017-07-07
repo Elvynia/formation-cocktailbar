@@ -22,7 +22,7 @@
 			<tbody>
 				<c:url value="/images" var="imgUrl" />
 				<c:forEach items="${cocktailList}" var="cocktail">
-					<tr>
+					<tr id="line-${cocktail.id}">
 						<td>${cocktail.id}</td>
 						<td>${cocktail.name}</td>
 						<td>${cocktail.price}</td>
@@ -44,5 +44,23 @@
 		</table>
 	</div>
 	<jsp:include page="../footer.jsp" />
+	<script type="text/javascript">
+		$(document).ready(() => {
+			$('#cocktailTable').dataTable();
+			$('table#cocktailTable tbody tr').each(
+				(index, line) => {
+					$(line).click((event) => {
+						let id = event.currentTarget.id.split('-')[1];
+						// Ouvrir la fenêtre dialog avec l'id récupéré.
+						let dialog = $('<div></div>');
+						dialog.load('<c:url value="/ingredient/view/" />' + id);
+						dialog.appendTo(document.body);
+						dialog.dialog({
+							width: '80%'
+						});
+					});
+				});
+		});
+	</script>
 </body>
 </html>

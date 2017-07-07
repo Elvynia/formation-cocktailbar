@@ -48,7 +48,10 @@
 	</div>
 	<jsp:include page="../footer.jsp" />
 	<script type="text/javascript">
-		$('.fade').addClass('in');
+		$(document).ready(() => {
+			$('.fade').addClass('in');
+			$('#productTable').dataTable();
+		});
 	</script>
 </body>
 </html>
