@@ -105,7 +105,25 @@ public class IngredientController {
 		if (index >= 0) {
 			final Ingredient ingredient = ingredientList.remove(index);
 			productList.add(ingredient.getProduct());
+			// this.ingredientDao.delete(ingredient);
 		}
 		return "ingredient/edit";
 	}
+	
+	@RequestMapping("/save")
+	public String save(@ModelAttribute final List<Ingredient> ingredientList,
+			@ModelAttribute final Cocktail cocktail) {
+		this.ingredientDao.deleteAllByCocktailId(cocktail.getId());
+		this.ingredientDao.save(ingredientList);
+		return "redirect:/cocktail/";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

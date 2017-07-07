@@ -44,7 +44,8 @@
 							</div>
 							<div class="form-group">
 								<label for="quantity">Quantité :</label>
-								<input type="number" min="0" id="quantity" name="quantity" class="form-control">
+								<input type="number" min="0" id="quantity" value="0"
+									name="quantity" class="form-control" required="required">
 							</div>
 							<button>Ajouter</button>
 						</form>
@@ -52,6 +53,10 @@
 				</tr>
 			</tfoot>
 		</table>
+		<div>
+			<c:url value="/ingredient/save" var="saveUrl" />
+			<button onclick="window.document.location='${saveUrl}'">Valider</button>
+		</div>
 	</div>
 	<jsp:include page="../footer.jsp" />
 </body>
