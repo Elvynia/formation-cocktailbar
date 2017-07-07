@@ -79,10 +79,12 @@ public class IngredientController {
 		ingredient.setProduct(this.productDao.findOne(productId));
 		ingredient.setQuantity(quantity);
 		// Ajout de l'ingrédient dans la liste stockée en session.
+		@SuppressWarnings("unchecked")
 		final List<Ingredient> ingredientList = (List<Ingredient>) model.asMap()
 				.get("ingredientList");
 		ingredientList.add(ingredient);
 		// Retirer le produit ajouté de la liste des produits disponibles.
+		@SuppressWarnings("unchecked")
 		final List<Product> productList = (List<Product>) model.asMap()
 				.get("productList");
 		productList.remove(ingredient.getProduct());
@@ -113,6 +115,7 @@ public class IngredientController {
 	@RequestMapping("/save")
 	public String save(@ModelAttribute final List<Ingredient> ingredientList,
 			@ModelAttribute final Cocktail cocktail) {
+		IngredientController.LOGGER.debug("Suppression et sauvegarde des ingrédients du cocktail.");
 		this.ingredientDao.deleteAllByCocktailId(cocktail.getId());
 		this.ingredientDao.save(ingredientList);
 		return "redirect:/cocktail/";
