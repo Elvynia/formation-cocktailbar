@@ -48,4 +48,29 @@
 			</one-to-one>
 		</attributes>
 	</entity>
+	
+	<entity class="fr.formation.cocktailbar.entity.Role">
+		<table name="role" />
+		<attributes>
+			<id name="id">
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="name" />
+		</attributes>
+	</entity>
+	
+	<entity class="fr.formation.cocktailbar.entity.Account">
+		<table name="account" />
+		<attributes>
+			<id name="id">
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="username" />
+			<basic name="password" />
+			<basic name="enabled" />
+			<one-to-one name="role">
+				<join-column name="id_role" referenced-column-name="id" />
+			</one-to-one>
+		</attributes>
+	</entity>
 </entity-mappings>
