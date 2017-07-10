@@ -16,6 +16,11 @@
 		<form:errors element="div" path="password" cssClass="alert alert-danger" />
 	</div>
 	<div>
+		<label for="role">Role :</label>
+		<form:select id="role" path="role" items="${roleList}"
+			itemLabel="name" itemValue="id" />
+	</div>
+	<div>
 		<label for="enabled">Actif :</label>
 		<form:checkbox id="enabled" path="enabled" />
 	</div>

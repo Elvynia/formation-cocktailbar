@@ -21,10 +21,11 @@ import org.springframework.web.servlet.ModelAndView;
 import fr.formation.cocktailbar.dao.AccountDao;
 import fr.formation.cocktailbar.dao.RoleDao;
 import fr.formation.cocktailbar.entity.Account;
+import fr.formation.cocktailbar.entity.Role;
 
 @Controller
 @RequestMapping("/account")
-@SessionAttributes({ "accountList", "account" })
+@SessionAttributes({ "accountList", "account", "roleList" })
 public class AccountController {
 
 	private static final String VIEW_NAME = "account/manage";
@@ -42,6 +43,11 @@ public class AccountController {
 	public Set<Account> accountList() {
 		return new HashSet<>();
 	}
+	
+	@ModelAttribute
+	public Set<Role> roleList() {
+		return new HashSet<>();
+	}
 
 	@ModelAttribute
 	public Account account() {
@@ -49,10 +55,12 @@ public class AccountController {
 	}
 
 	@RequestMapping({ "", "/" })
-	public ModelAndView index(final @ModelAttribute Set<Account> accountList) {
+	public ModelAndView index(final @ModelAttribute Set<Account> accountList,
+			final @ModelAttribute Set<Role> roleList) {
 		AccountController.LOGGER.info("Initialized account management page.");
 		final ModelAndView mav = new ModelAndView(AccountController.VIEW_NAME);
 		accountList.addAll(this.accountDao.findAll());
+		roleList.addAll(this.roleDao.findAll());
 		return mav;
 	}
 
@@ -78,8 +86,6 @@ public class AccountController {
 		if (bindings.hasErrors()) {
 			return AccountController.VIEW_NAME;
 		}
-		// TODO: Ajouter l'associtation au rôle dans la JSP !
-		account.setRole(this.roleDao.findAll().get(0));
 		final boolean isNew = account.getId() == null;
 		this.accountDao.save(account);
 		if (isNew) {

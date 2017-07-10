@@ -6,6 +6,7 @@
         <tr>
             <th>Id</th>
             <th>Nom d'utilisateur</th>
+            <th>Rôle</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -15,6 +16,7 @@
             <tr>
                 <td>${account.id}</td>
                 <td>${account.username}</td>
+                <td>${account.role.name}</td>
                 <td>
                 	<a href="<c:url value="/account/delete?id=${account.id}" />">
                 		<img src="${imgPrefixUrl}/delete.png">

@@ -15,7 +15,16 @@
 
 	<context:component-scan base-package="fr.formation.cocktailbar.controller" />
 	
-	<mvc:annotation-driven />
+	<bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<bean class="fr.formation.cocktailbar.model.RoleConverter" />
+			</set>
+		</property>
+	</bean>
+	
+	<mvc:annotation-driven conversion-service="conversionService" />
 	<mvc:resources mapping="/images/**" location="/images/" />
 
 	<bean id="viewResolver"
