@@ -78,11 +78,11 @@ public class AccountController {
 		this.accountDao.save(account);
 		if (isNew) {
 			accountList.add(account);
-			model.addAttribute("account", new Account());
 		} else {
 			accountList.remove(account);
 			accountList.add(account);
 		}
+		model.addAttribute("account", new Account());
 		return "account/manage";
 	}
 }
