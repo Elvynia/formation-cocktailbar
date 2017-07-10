@@ -8,10 +8,12 @@
 	<div class="form-group">
 		<label for="username">Nom d'utilisateur :</label>
 		<form:input id="username" path="username" />
+		<form:errors element="div" path="username" cssClass="alert alert-danger" />
 	</div>
 	<div class="form-group">
-		<label for="price">Mot de passe :</label>
+		<label for="password">Mot de passe :</label>
 		<form:input type="password" id="password" path="password" />
+		<form:errors element="div" path="password" cssClass="alert alert-danger" />
 	</div>
 	<div>
 		<label for="enabled">Actif :</label>

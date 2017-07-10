@@ -1,11 +1,19 @@
 package fr.formation.cocktailbar.entity;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 public class Account {
 
 	private Integer id;
 
+	@NotEmpty
+	@Length(min=5, max=45)
 	private String username;
 
+	@NotEmpty
+	@Length(min=5, max=45)
 	private String password;
 
 	private Role role;
