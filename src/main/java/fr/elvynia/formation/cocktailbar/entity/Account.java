@@ -1,5 +1,6 @@
 package fr.elvynia.formation.cocktailbar.entity;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -15,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "ACCOUNT")
-public class Account implements UserDetails {
+public class Account implements UserDetails, Serializable {
 
 	private static final long serialVersionUID = 1L;
 
