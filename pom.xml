@@ -104,6 +104,10 @@
 			<artifactId>datatables-colreorder</artifactId>
 			<version>1.2.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
